@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Nahrát dokument{% endblock %}
+{% block content %}
+<h2>Nahrát zdrojový dokument</h2>
+
+<form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+  <p>
+    <label>Typ dokumentu:<br>
+      <select name="doc_type">
+        <option value="auto">Automaticky rozpoznat</option>
+        <option value="objednavka">č.1 Objednávka dodávek a prací</option>
+        <option value="smlouva">č.4 Smlouva o dílo</option>
+      </select>
+    </label>
+  </p>
+  <p>
+    <label>PDF soubor:<br>
+      <input type="file" name="dokument" accept=".pdf,application/pdf" required>
+    </label>
+  </p>
+  <p>
+    <button type="submit">Zpracovat a předvyplnit protokoly</button>
+  </p>
+</form>
+
+<hr>
+<h2>Poslední hotové dokumenty</h2>
+{% if outputs %}
+<table border="1" cellpadding="4" cellspacing="0">
+  <tr>
+    <th>Soubor</th>
+    <th>Velikost</th>
+    <th>Datum</th>
+    <th></th>
+  </tr>
+  {% for f in outputs %}
+  <tr>
+    <td>{{ f.name }}</td>
+    <td>{{ f.size }} B</td>
+    <td>{{ f.mtime }}</td>
+    <td>
+      <a href="{{ url_for('preview', name=f.name) }}" target="_blank">Náhled</a> |
+      <a href="{{ url_for('download', name=f.name) }}">Stáhnout</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>Zatím žádné výstupy.</p>
+{% endif %}
+{% endblock %}

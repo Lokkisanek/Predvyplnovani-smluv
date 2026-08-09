@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Předvyplnění protokolů{% endblock %}</title>
+</head>
+<body>
+  <h1>Předvyplnění protokolů (TEDOM)</h1>
+  <p>
+    <a href="{{ url_for('index') }}">Nahrát dokument</a> |
+    <a href="{{ url_for('backups') }}">Zálohované soubory</a> |
+    <a href="{{ url_for('logs') }}">Logy systému</a>
+  </p>
+  <hr>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul>
+        {% for category, message in messages %}
+          <li{% if category == 'error' %} style="color:red"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  {% block content %}{% endblock %}
+</body>
+</html>

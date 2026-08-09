@@ -1,0 +1,15 @@
+SMLOUVA
+
+Číslo smlouvy: SML-2026-015
+Datum: 15.07.2026
+
+Název firmy: Firma Novák a.s.
+IČO: 12345678
+DIČ: CZ12345678
+Adresa: Hlavní 1, Praha 1
+Kontaktní osoba: Jan Novák
+E-mail: jan.novak@firma.cz
+Telefon: +420 777 888 999
+
+Předmět: Rámcová smlouva o dodávkách
+Cena: 45000 Kč

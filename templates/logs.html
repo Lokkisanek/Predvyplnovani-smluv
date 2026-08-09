@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Logy systému{% endblock %}
+{% block content %}
+<h2>Zobrazit logy systému</h2>
+{% if logs %}
+<table border="1" cellpadding="4" cellspacing="0">
+  <tr>
+    <th>Čas</th>
+    <th>Akce</th>
+    <th>Stav</th>
+    <th>Detail</th>
+  </tr>
+  {% for entry in logs %}
+  <tr>
+    <td>{{ entry.timestamp }}</td>
+    <td>{{ entry.action }}</td>
+    <td>{{ entry.status }}</td>
+    <td>{{ entry.detail }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>Žádné záznamy.</p>
+{% endif %}
+{% endblock %}

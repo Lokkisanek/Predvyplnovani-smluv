@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Zálohované soubory{% endblock %}
+{% block content %}
+<h2>Zobrazit zálohované soubory</h2>
+{% if backups %}
+<table border="1" cellpadding="4" cellspacing="0">
+  <tr>
+    <th>Soubor</th>
+    <th>Velikost</th>
+    <th>Datum</th>
+    <th></th>
+  </tr>
+  {% for f in backups %}
+  <tr>
+    <td>{{ f.name }}</td>
+    <td>{{ f.size }} B</td>
+    <td>{{ f.mtime }}</td>
+    <td>
+      <a href="{{ url_for('preview_backup', name=f.name) }}" target="_blank">Náhled</a> |
+      <a href="{{ url_for('download_backup', name=f.name) }}">Stáhnout</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>Žádné zálohy.</p>
+{% endif %}
+{% endblock %}

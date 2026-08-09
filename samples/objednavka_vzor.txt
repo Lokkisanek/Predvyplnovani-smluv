@@ -1,0 +1,15 @@
+OBJEDNÁVKA
+
+Číslo objednávky: OBJ-2026-001
+Datum: 20.07.2026
+
+Název firmy: Acme Dodávky s.r.o.
+IČO: 87654321
+DIČ: CZ87654321
+Adresa: Dodavatelská 12, Brno
+Kontaktní osoba: Petra Svobodová
+E-mail: petra@acme-dodavky.cz
+Telefon: +420 602 111 222
+
+Předmět: Dodávka kancelářského vybavení
+Cena: 45000 Kč
